@@ -1,0 +1,9 @@
+.hero-section{
+    min-height: 70vh;
+    // darken the background image
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://wallpapercave.com/wp/wp2366358.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

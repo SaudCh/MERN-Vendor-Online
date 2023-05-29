@@ -1,0 +1,16 @@
+{
+  "env": {
+    "JWT_KEY": "hello_nice_try_bye",
+    "MONGODB_URI": "mongodb+srv://saud:1234@cluster0.l7gmh.mongodb.net/vendor?retryWrites=true&w=majority",
+    "AUTH_EMAIL": "saudchaudhary17@gmail.com",
+    "AUTH_PASS": "wwricupoidqchazv",
+    "STRIPE_PUBLISH_KEY":"pk_test_51N5phIKLRDMKPzKLHIBJbvVdoJCLTScJuGsZzhwfaw0Pznuq5G4E3SvHEtx2DPXcygp0aVOd3aVjwohaZH3tG1IS00ZV5qdd9F",
+    "STRIPE_SECRET_KEY":"sk_test_51N5phIKLRDMKPzKLC3JwsP3ChIRw68GXdtlrjp2Xrr5V3vkfH63l2a2H8LVj8xNFsuqerMhIR8nVxwAG7u1sfBIa00c43Ggpny",
+    "STRIPE_SIGNING_SECRET":"whsec_zZiqc0R7IXJWgt04ZZTLPFMzlJ1TLJn9",
+    "CLIENT_URL":"http://localhost:5173",
+    "ADMIN_URL":"http://localhost:5174",
+    "GOOGLE_CLIENT_ID":"25844619900-o9ofslfd8of55mjemr9lcv97jgg9c28t.apps.googleusercontent.com",
+    "GOOGLE_CLIENT_SECRET":"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"
+    
+  }
+}
