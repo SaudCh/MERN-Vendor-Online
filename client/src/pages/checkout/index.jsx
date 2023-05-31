@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './index.css'
+import { CartContext } from '../../context/cartContext'
 
 export default function Checkout() {
+
+    const { cart, total } = useContext(CartContext)
+
     return (
         <div>
             <div class="py-4 container flex gap-3 items-center">
@@ -84,18 +88,22 @@ export default function Checkout() {
                 <div class="lg:col-span-4 bg-white border border-gray-200 px-4 py-4 rounded mt-6 lg:mt-0">
                     <h4 class="text-gray-800 text-lg mb-4 font-medium uppercase">ORDER SUMMARY</h4>
                     <div class="space-y-2">
-                        <div class="flex justify-between" v-for="n in 3" key="n">
-                            <div>
-                                <h5 class="text-gray-800 font-medium">Italian Shape Sofa</h5>
-                                <p class="text-sm text-gray-600">Size: M</p>
-                            </div>
-                            <p class="text-gray-600">x3</p>
-                            <p class="text-gray-800 font-medium">$320</p>
-                        </div>
+                        {
+                            cart.map((item, index) => (
+                                <div class="flex justify-between" v-for="n in 3" key="n">
+                                    <div>
+                                        <h5 class="text-gray-800 font-medium">{item?.title}</h5>
+                                        {/* <p class="text-sm text-gray-600">Size: M</p> */}
+                                    </div>
+                                    <p class="text-gray-600">x{item?.quantity}</p>
+                                    <p class="text-gray-800 font-medium">{item?.quantity * item?.price}</p>
+                                </div>
+                            ))
+                        }
                     </div>
                     <div class="flex justify-between border-b border-gray-200 mt-1">
                         <h4 class="text-gray-800 font-medium my-3 uppercase">Subtotal</h4>
-                        <h4 class="text-gray-800 font-medium my-3 uppercase">$320</h4>
+                        <h4 class="text-gray-800 font-medium my-3 uppercase">PKR {total}</h4>
                     </div>
                     <div class="flex justify-between border-b border-gray-200">
                         <h4 class="text-gray-800 font-medium my-3 uppercase">Shipping</h4>
@@ -103,7 +111,7 @@ export default function Checkout() {
                     </div>
                     <div class="flex justify-between">
                         <h4 class="text-gray-800 font-semibold my-3 uppercase">Total</h4>
-                        <h4 class="text-gray-800 font-semibold my-3 uppercase">$320</h4>
+                        <h4 class="text-gray-800 font-semibold my-3 uppercase">PKR {total}</h4>
                     </div>
 
                     <div class="flex items-center mb-4 mt-2">
@@ -115,7 +123,7 @@ export default function Checkout() {
                         </label>
                     </div>
 
-                    <a href="order-complete.html" class="bg-primary border border-primary text-white px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
+                    <a class="bg-primary border border-secondary-900 text-secondary-900  px-4 py-3 font-medium rounded-md uppercase hover:bg-secondary-800 hover:text-white
          hover:text-primary transition text-sm w-full block text-center">
                         Place order
                     </a>
