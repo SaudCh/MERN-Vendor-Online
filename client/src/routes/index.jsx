@@ -10,6 +10,7 @@ import AuthRoute from "./authRoute";
 import Loading from "./loading";
 import ProtectedRoute from "./protectedRoute";
 import ChatBox from "../pages/chat";
+import Checkout from "../pages/checkout";
 
 const Layout = lazy(() => import("./layout"));
 
@@ -30,6 +31,10 @@ export default function AppRouter() {
             <Route
               path="/cart"
               element={<Cart />}
+            />
+            <Route
+              path="/checkout"
+              element={<Checkout />}
             />
             <Route
               path="/chat"

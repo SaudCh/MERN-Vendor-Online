@@ -26,7 +26,7 @@ const getProductById = async (req, res, next) => {
     let product
 
     try {
-        product = await productSchema.findById(req.params.id).populate('shop')
+        product = await productSchema.findById(req.params.id).populate('shop').populate('category')
     } catch (err) {
         const error = new HttpError(err.message, 500)
         return next(error)

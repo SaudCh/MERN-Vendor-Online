@@ -46,7 +46,7 @@ export default function UserTable({ data, toggleBlock }) {
                     <td data-label="price">
                       <button
                         onClick={() => toggleBlock(user.id, !user.isBlocked)}
-                        className={`${user?.isBlocked ? "bg-blue-500 hover:bg-blue-700" : "bg-red-500 hover:bg-red-700"} text-white py-1 px-2 rounded`}>
+                        className={`${user?.isBlocked ? "bg-secondary-500 hover:bg-secondary-700" : "bg-red-500 hover:bg-red-700"} text-white py-1 px-2 rounded`}>
                         {user.isBlocked ? "Unblock" : "Block"}
                       </button>
                     </td>

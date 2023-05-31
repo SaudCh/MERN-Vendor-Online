@@ -17,6 +17,17 @@ module.exports = {
           800: '#330000',
           900: '#1a0000',
         },
+        secondary: {
+          900: '#ff6a00',
+          800: '#ff7a00',
+          700: '#ff8a00',
+          600: '#ff9a00',
+          500: '#ffa900',
+          400: '#ffba00',
+          300: '#ffca00',
+          200: '#ffda00',
+          100: '#ffea00',
+        },
       },
       fontFamily: {
         poppins: ['Poppins', ...defaultTheme.fontFamily.sans],

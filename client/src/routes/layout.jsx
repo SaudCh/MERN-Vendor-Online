@@ -5,6 +5,7 @@ import { AuthContext } from "../context/authContext";
 import LoadingSpinner from "../components/spinner";
 import { LoadingContext } from "../context/loadingContext";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 function Layout() {
   const { isLoading } = useContext(LoadingContext);
@@ -24,6 +25,8 @@ function Layout() {
       <div className="min-h-[80vh] bg-slate-50">
         <Outlet />
       </div>
+
+      <Footer />
 
     </div>
   );

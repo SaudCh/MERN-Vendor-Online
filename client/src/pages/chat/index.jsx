@@ -35,7 +35,7 @@ const ChatBox = () => {
         // name: displayName,
         // avatar: photoURL,
         createdAt: serverTimestamp(),
-        chatId: `${sellerId._id}-${user?.id}`,
+        chatId: `${selected}-${user?.id}`,
         userId: user?.id,
       });
       setMessage("");

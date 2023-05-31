@@ -72,7 +72,7 @@ export default function AddCategory() {
 
               <div className="flex justify-center items-center col-span-2 ">
                 <button
-                  className="bg-blue-500 text-white p-2 w-[200px] rounded-full tracking-wide"
+                  className="bg-secondary-500 text-white p-2 w-[200px] rounded-full tracking-wide"
                 >
                   Submit
                 </button>

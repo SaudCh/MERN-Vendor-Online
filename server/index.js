@@ -45,7 +45,7 @@ app.use(bodyParser.json())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.get("/", (req, res) => {
-    res.send("MS Optics")
+    res.send("vendor online")
 })
 
 app.use('/api/user/', require('./routes/userRouter'))

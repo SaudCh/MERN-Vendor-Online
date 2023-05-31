@@ -10,13 +10,13 @@ export const useCart = () => {
         // if item is already in cart, increase quantity
 
         let newCart = [...cart];
-        const itemInCart = newCart.find((i) => i._id === item._id && i?.sp === item?.sp);
+        const itemInCart = newCart.find((i) => i._id === item._id);
 
         if (itemInCart) {
             itemInCart.quantity = itemInCart.quantity + item.quantity;
             toast.success("Item added to cart");
         } else {
-            item.quantity = 1;
+            // item.quantity = 1;
             newCart.push(item);
             toast.success("Item added to cart");
         }

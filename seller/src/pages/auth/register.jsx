@@ -73,7 +73,7 @@ export default function Register() {
                 <div className="mb-6">
                   <input
                     type="text"
-                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-secondary-600 focus:outline-none"
                     id="exampleFormControlInput2"
                     placeholder="Name"
                     value={data.name}
@@ -86,7 +86,7 @@ export default function Register() {
                 <div className="mb-6">
                   <input
                     type="text"
-                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-secondary-600 focus:outline-none"
                     id="exampleFormControlInput2"
                     placeholder="Email address"
                     value={data.email}
@@ -99,7 +99,7 @@ export default function Register() {
                 <div className="mb-6">
                   <input
                     type="password"
-                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-secondary-600 focus:outline-none"
                     id="exampleFormControlInput2"
                     placeholder="Password"
                     value={data.password}
@@ -112,7 +112,7 @@ export default function Register() {
                 <div className="mb-6">
                   <input
                     type="password"
-                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    className="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-secondary-600 focus:outline-none"
                     id="exampleFormControlInput2"
                     placeholder="Confirm Password"
                     value={data.confirmpassword}
@@ -123,12 +123,12 @@ export default function Register() {
                 </div>
 
                 <div className="flex justify-evenly">
-                  <button className="inline-block px-7 py-2 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                  <button className="inline-block px-7 py-2 bg-secondary-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-secondary-700 hover:shadow-lg focus:bg-secondary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-secondary-800 active:shadow-lg transition duration-150 ease-in-out">
                     Register
                   </button>
                   <Link
                     to="/login"
-                    className="inline-block px-7 py-2 bg-white text-blue-600 font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-100 hover:shadow-lg focus:bg-gray-100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-100 active:shadow-lg transition duration-150 ease-in-out">
+                    className="inline-block px-7 py-2 bg-white text-secondary-600 font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-100 hover:shadow-lg focus:bg-gray-100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-100 active:shadow-lg transition duration-150 ease-in-out">
                     Login
                   </Link>
                 </div>

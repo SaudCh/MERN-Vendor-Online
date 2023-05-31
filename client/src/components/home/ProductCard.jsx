@@ -14,7 +14,7 @@ export default function ProductCard({
   const navigation = useNavigate()
 
   return (
-    <div className="flex justify-center relative">
+    <div className="flex justify-center relative bg-white rounded border shadow hover:shadow-2xl ">
       {/* heart icon from react icons  */}
       <div className="absolute top-2 left-2">
         <button

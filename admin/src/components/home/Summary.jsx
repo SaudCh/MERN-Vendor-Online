@@ -26,7 +26,7 @@ function Summary() {
             <p className="text-right text-slate-500 font-extralight text-sm ">Combined report for all tracking IDs</p> 
             
         </div>
-        <a href="#" class="text-sm inline-flex items-center text-blue-600 hover:underline">
+        <a href="#" class="text-sm inline-flex items-center text-secondary-600 hover:underline">
         View Full Report
         
     </a>
