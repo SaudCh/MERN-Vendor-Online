@@ -36,7 +36,7 @@ const signup = async (req, res, next) => {
         password: hashedPassword,
         name,
         role,
-        status: role === 'seller' ? 'pending' : 'active'
+        status: role == "seller" ? 'pending' : 'active'
     })
 
     try {
