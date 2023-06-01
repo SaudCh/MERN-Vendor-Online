@@ -33,7 +33,7 @@ export default function LoginP() {
       .post("user/signup", data)
       .then((res) => {
         Login(res.data, res.data.token);
-        navigate("/account");
+        navigate("/");
       })
       .catch((err) => {
         let error = {};

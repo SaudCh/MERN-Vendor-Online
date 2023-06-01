@@ -6,8 +6,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "dark-purple":"#081A51",
-        "light-white":"rgba(255,255,255,0.18)",
         primary: {
           100: '#e6cccc',
           200: '#cc9999',
@@ -18,7 +16,17 @@ module.exports = {
           700: '#4d0000',
           800: '#330000',
           900: '#1a0000',
-
+        },
+        secondary: {
+          900: '#ff6a00',
+          800: '#ff7a00',
+          700: '#ff8a00',
+          600: '#ff9a00',
+          500: '#ffa900',
+          400: '#ffba00',
+          300: '#ffca00',
+          200: '#ffda00',
+          100: '#ffea00',
         },
       },
       fontFamily: {
