@@ -24,9 +24,27 @@ export default function Categories() {
   const { user } = useContext(AuthContext)
   const navigate = useNavigate()
 
+  const getProduct = async () => {
+    axios.get('category').then((res) => {
+      setData(res.data.categories)
+    }).catch((err) => {
+      console.log(err)
+    })
+
+  };
+
   const deleteProduct = async (id) => {
 
     setLoading(true)
+
+    await axios.delete("category/" + id).then((res) => {
+      console.log(res)
+      getProduct()
+    }).catch((err) => {
+      console.log(err)
+    })
+
+
 
     setLoading(false)
 
@@ -87,7 +105,7 @@ export default function Categories() {
                   <td data-label="id">{row?.name}</td>
                   <td data-label="action">
                     <button
-                      onClick={() => deleteProduct(row.id)}
+                      onClick={() => deleteProduct(row._id)}
                       className="bg-[#268FCD] text-white px-2 py-1 rounded-md">
                       Delete
                     </button>

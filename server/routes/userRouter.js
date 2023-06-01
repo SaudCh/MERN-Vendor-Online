@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { signup, login, forgetPassword, getAllUsers } = require('../controllers/userController')
-const { resetPassword, updateUser, updatePassword } = require('../controllers/userController')
+const { resetPassword, updateUser, updatePassword, updateStatus } = require('../controllers/userController')
 const { adminLogin, getUserInfo } = require('../controllers/userController')
 const checkAuth = require('../middleware/checkAuth')
 const { upload } = require('../middleware/multer')
@@ -21,6 +21,8 @@ router.get('/all', getAllUsers)
 router.patch('/update-user', upload.single("image"), updateUser)
 
 router.get('/get-user-info', getUserInfo)
+
+router.patch('/update-status', updateStatus)
 
 
 

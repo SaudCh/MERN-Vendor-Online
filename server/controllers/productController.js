@@ -1,5 +1,6 @@
 const productSchema = require('../models/productSchema')
 const HttpError = require('../middleware/http-error')
+const userSchema = require('../models/userSchema')
 
 const getProducts = async (req, res, next) => {
 
@@ -68,7 +69,27 @@ const createProduct = async (req, res, next) => {
         description, shop
     } = req.body
 
-    if(!req.file) {
+    let user 
+
+    try {
+        user = await userSchema.findById(shop)
+    } catch (err) {
+        const error = new HttpError(err.message, 500)
+        return next(error)
+    }
+
+    if(user.status === 'pending'){
+        const error = new HttpError('Shop is not verified', 500)
+        return next(error)
+    }
+
+    if(user.status === 'rejected'){
+        const error = new HttpError('Shop is rejected', 500)
+        return next(error)
+    }
+
+
+    if (!req.file) {
         const error = new HttpError('Image is required', 500)
         return next(error)
     }
@@ -127,7 +148,7 @@ const updateProduct = async (req, res, next) => {
         shop
     }
 
-    if(req.file) {
+    if (req.file) {
         body.image = req.file.path
     }
 

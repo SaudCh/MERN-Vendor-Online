@@ -4,6 +4,7 @@ import { LoadingContext } from "../../context/loadingContext";
 import axios from "axios";
 import { CartContext } from "../../context/cartContext";
 import { WishlistContext } from "../../context/wishlistContext";
+import { AuthContext } from "../../context/authContext";
 
 const Product = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const Product = () => {
   const { setIsLoading } = useContext(LoadingContext);
   const { addToCart } = useContext(CartContext);
   const { wishlist, toggleWishlist } = useContext(WishlistContext)
+  const { isLoggedIn } = useContext(AuthContext)
 
   const isInWishlist = wishlist?.includes(data?._id)
 
@@ -61,6 +63,14 @@ const Product = () => {
           <span className=' text-secondary-600 font-semibold'>{data?.category?.name}</span>
           <h1 className='text-3xl font-bold capitalize'>{data?.title}</h1>
         </div>
+        {/* shop info  */}
+        <div className='flex flex-row items-center gap-4'>
+          <img src={import.meta.env.VITE_SERVER_URL + data?.shop?.avatar} alt="" className='w-16 h-16 rounded-full object-cover' />
+          <div className='flex flex-col'>
+            <span className='text-lg font-semibold'>{data?.shop?.name}</span>
+            <span className='text-gray-700'>{data?.shop?.location}</span>
+          </div>
+        </div>
         <p className='text-gray-700'>
           {data?.description}
         </p>
@@ -78,7 +88,7 @@ const Product = () => {
         </div>
         <div className="flex justify-center md:justify-start gap-12 mb-5">
           <button
-            onClick={() => navigate('/chat', {
+            onClick={() => navigate(isLoggedIn ? '/chat' : '/login', {
               state: {
                 sellerId: data?.shop,
                 productId: data?._id

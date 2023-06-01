@@ -27,10 +27,25 @@ export default function Users() {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const deleteProduct = async (id) => {
+    const getProduct = async () => {
+
+        axios.get('user/all').then((res) => {
+            setData(res.data.users)
+        }).catch((err) => {
+            console.log(err)
+        })
+
+    };
+
+    const deleteProduct = async (body) => {
 
         setLoading(true)
-
+        await axios.patch('user/update-status', body).then((res) => {
+            console.log(res)
+            getProduct()
+        }).catch((err) => {
+            console.log(err)
+        })
         setLoading(false)
 
     }
@@ -84,19 +99,58 @@ export default function Users() {
                                     <td data-label="id">{index + 1}</td>
                                     <td data-label="id">{row?.name}</td>
                                     <td data-label="id" className="capitalize">{row?.role}</td>
+                                    <td data-label="id" className="capitalize">{row?.status}</td>
                                     <td data-label="action">
-                                        <button
-                                            onClick={() => deleteProduct(row.id)}
-                                            className="bg-[#268FCD] text-white px-2 py-1 rounded-md">
-                                            Delete
-                                        </button>
-                                        {/* green color edit button */}
                                         {
-                                            row.isApproved === false && (
+                                            (row.status === "blocked") && (
+                                                <p>Blocked</p>
+                                            )
+                                        }
+
+                                        {
+                                            (row.status === "rejected") && (
+                                                <p>Rejected</p>
+                                            )
+                                        }
+
+                                        {
+                                            (row.status === "pending") && (
+                                                <>
+                                                    <button
+                                                        onClick={
+                                                            () => deleteProduct({
+                                                                userId: row._id,
+                                                                status: "rejected",
+                                                            })
+                                                        }
+
+                                                        className="bg-[red] text-white px-2 py-1 rounded-md ml-2"
+                                                    >
+                                                        Reject
+                                                    </button>
+                                                    <button
+                                                        onClick={
+                                                            () => deleteProduct({
+                                                                userId: row._id,
+                                                                status: "active",
+                                                            })
+                                                        }
+                                                        className="bg-[#79B84E] text-white px-2 py-1 rounded-md ml-2"
+                                                    >
+                                                        Approve
+                                                    </button>
+                                                </>
+                                            )
+                                        }
+                                        {
+                                            row.status === "active" && (
                                                 <button
-                                                    className="bg-[#79B84E] text-white px-2 py-1 rounded-md ml-2"
-                                                >
-                                                    Approve
+                                                    onClick={() => deleteProduct({
+                                                        userId: row._id,
+                                                        status: "blocked",
+                                                    })}
+                                                    className="bg-[#268FCD] text-white px-2 py-1 rounded-md">
+                                                    Block
                                                 </button>
                                             )
                                         }

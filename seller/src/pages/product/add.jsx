@@ -68,6 +68,7 @@ export default function AddProduct() {
         setLoading(false)
 
       }).catch((err) => {
+        toast.error(err?.response?.data?.message || err.message)
         console.log(err)
         setLoading(false)
       })

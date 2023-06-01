@@ -36,6 +36,7 @@ const signup = async (req, res, next) => {
         password: hashedPassword,
         name,
         role,
+        status: role === 'seller' ? 'pending' : 'active'
     })
 
     try {
@@ -390,7 +391,7 @@ const updatePassword = async (req, res, next) => {
 const getAllUsers = async (req, res, next) => {
     let users
     try {
-        users = await userSchema.find({ isDeleted: false, role: ['seller', 'client'] }, { name: 1, email: 1, role: 1, isApproved: 1 })
+        users = await userSchema.find({ isDeleted: false, role: ['seller', 'client'] }, { name: 1, email: 1, role: 1, isApproved: 1, status: 1 })
     }
     catch (err) {
         const error = new HttpError(err.message, 500)
@@ -426,6 +427,39 @@ const getUserInfo = async (req, res, next) => {
 
 }
 
+const updateStatus = async (req, res, next) => {
+
+    const { userId, status } = req.body
+
+    let user
+
+    try {
+        user = await userSchema.findById(userId)
+    } catch (err) {
+        const error = new HttpError(err.message, 500)
+        return next(error)
+    }
+
+    if (!user) {
+        const error = new HttpError('User not found', 401)
+        return next(error)
+    }
+
+    try {
+        await userSchema.findByIdAndUpdate(userId, req.body)
+    }
+    catch (err) {
+        const error = new HttpError(err.message, 500)
+        return next(error)
+    }
+
+    res.status(201).json({ message: 'Status updated successfully' })
+
+}
+
+
+
+
 
 module.exports = {
     signup,
@@ -436,5 +470,6 @@ module.exports = {
     updatePassword,
     getAllUsers,
     adminLogin,
-    getUserInfo
+    getUserInfo,
+    updateStatus
 }
